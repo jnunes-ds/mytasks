@@ -36,7 +36,7 @@ export function Home() {
   }
 
   function handleRemoveTask(id: number) {
-    //TODO - remove task from state
+    console.log(id);
   }
 
   return (
