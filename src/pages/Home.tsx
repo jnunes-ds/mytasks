@@ -26,8 +26,9 @@ export function Home() {
         
         setTasks(oldState => [ ...oldState, task ]);
       }
+    }else{
+      Alert.alert('Warning!', 'You need to tell us the name of the task.')
     }
-    Alert.alert('Warning!', 'You need to tell us the name of the task.')
   }
 
   function handleMarkTaskAsDone(id: number) {
