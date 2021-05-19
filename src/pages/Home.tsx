@@ -53,7 +53,6 @@ export function Home() {
     });
 
     setTasks(TASKS);
-    console.log(tasks);
   }
 
   return (
