@@ -22,8 +22,8 @@ export function TodoInput({ addTask }: TodoInputProps) {
         style={styles.input} 
         placeholder="Adicionar novo todo..."
         returnKeyType="send"
-        value=''
-        onChangeText={() => {}}
+        value={task}
+        onChangeText={setTask}
       />
       <TouchableOpacity
         testID="add-new-task-button"
