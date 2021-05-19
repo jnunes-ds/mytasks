@@ -44,7 +44,16 @@ export function Home() {
   }
   
   function handleRemoveTask(id: number) {
-    console.log('longo', id);
+    let TASKS: Array<Task> = [];
+
+    tasks.filter(item => {
+      if(item.id !== id){
+        TASKS.push(item)
+      }
+    });
+
+    setTasks(TASKS);
+    console.log(tasks);
   }
 
   return (
