@@ -34,9 +34,9 @@ export function Home() {
   function handleMarkTaskAsDone(id: number) {
     console.log(id);
   }
-
+  
   function handleRemoveTask(id: number) {
-    console.log(id);
+    console.log('longo', id);
   }
 
   return (
