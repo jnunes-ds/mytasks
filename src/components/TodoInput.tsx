@@ -23,6 +23,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
         placeholder="Adicionar novo todo..."
         returnKeyType="send"
         value=''
+        onChangeText={() => {}}
       />
       <TouchableOpacity
         testID="add-new-task-button"
