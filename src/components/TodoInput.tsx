@@ -11,7 +11,6 @@ export function TodoInput({ addTask }: TodoInputProps) {
   const [task, setTask] = useState('');
 
   function handleAddNewTask(task: string) {
-    //TODO - Call addTask and clean input value
     addTask(task);
     setTask(''); 
     console.log('Clicado!')
