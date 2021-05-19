@@ -32,7 +32,7 @@ export function Home() {
   }
 
   function handleMarkTaskAsDone(id: number) {
-    //TODO - mark task as done if exists
+    console.log(id);
   }
 
   function handleRemoveTask(id: number) {
