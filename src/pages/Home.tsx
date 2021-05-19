@@ -32,7 +32,16 @@ export function Home() {
   }
 
   function handleMarkTaskAsDone(id: number) {
-    console.log(id);
+    let TASKS = tasks;
+
+    TASKS.map(item => {
+      if(item.id === id){
+        console.log(item)
+        item.done = !item.done;
+        console.log(item);
+        console.log(tasks)
+      }
+    })
   }
   
   function handleRemoveTask(id: number) {
