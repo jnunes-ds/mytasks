@@ -12,6 +12,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
 
   function handleAddNewTask() {
     //TODO - Call addTask and clean input value 
+    console.log('Clicado!')
   }
 
   return (
@@ -26,6 +27,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
         testID="add-new-task-button"
         activeOpacity={0.7}
         style={styles.addButton}
+        onPress={handleAddNewTask}
         //TODO - onPress prop
       >
         <Image source={checkIcon} />

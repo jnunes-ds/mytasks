@@ -14,7 +14,7 @@ export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   function handleAddTask(newTaskTitle: string) {
-    //TODO - add new task if it's not empty
+    // TODO - add new task if it's not empty
     if(newTaskTitle){
       if(typeof newTaskTitle === 'string' && newTaskTitle != ''){
         const task: Task = {
@@ -23,9 +23,11 @@ export function Home() {
           done: false
         }
 
-        setTasks([ ...tasks, task ]);
+        setTasks(oldState => [ ...oldState, task ]);
+        console.log(tasks)
       }
     }
+    // console.log("Ola")
   }
 
   function handleMarkTaskAsDone(id: number) {
