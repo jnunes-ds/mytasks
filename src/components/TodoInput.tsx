@@ -13,7 +13,6 @@ export function TodoInput({ addTask }: TodoInputProps) {
   function handleAddNewTask(task: string) {
     addTask(task);
     setTask(''); 
-    console.log('Clicado!')
   }
 
   return (
