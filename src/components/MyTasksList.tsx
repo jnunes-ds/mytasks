@@ -29,7 +29,7 @@ export function MyTasksList({ tasks, onLongPress, onPress }: MyTasksListProps) {
           <TouchableOpacity
             testID={`button-${index}`}
             activeOpacity={0.7}
-            onPress={() => console.log(item.id.toString())}
+            onPress={() => onPress(item.id)}
           >
             <View 
               testID={`marker-${index}`}
