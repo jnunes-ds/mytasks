@@ -36,12 +36,11 @@ export function Home() {
 
     TASKS.map(item => {
       if(item.id === id){
-        console.log(item)
         item.done = !item.done;
-        console.log(item);
-        console.log(tasks)
       }
     })
+
+    setTasks(TASKS);
   }
   
   function handleRemoveTask(id: number) {
