@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 
 import { Header } from '../components/Header';
 import { MyTasksList } from '../components/MyTasksList';
@@ -24,10 +25,9 @@ export function Home() {
         }
         
         setTasks(oldState => [ ...oldState, task ]);
-        console.log(tasks)
       }
     }
-    // console.log("Ola")
+    Alert.alert('Warning!', 'You need to tell us the name of the task.')
   }
 
   function handleMarkTaskAsDone(id: number) {
