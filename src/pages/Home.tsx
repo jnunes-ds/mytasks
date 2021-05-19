@@ -22,7 +22,7 @@ export function Home() {
           title: newTaskTitle,
           done: false
         }
-
+        
         setTasks(oldState => [ ...oldState, task ]);
         console.log(tasks)
       }

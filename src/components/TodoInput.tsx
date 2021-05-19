@@ -11,7 +11,8 @@ export function TodoInput({ addTask }: TodoInputProps) {
   // const [task, setTask] = useState('');
 
   function handleAddNewTask() {
-    //TODO - Call addTask and clean input value 
+    //TODO - Call addTask and clean input value
+    addTask('menino') 
     console.log('Clicado!')
   }
 
@@ -28,7 +29,6 @@ export function TodoInput({ addTask }: TodoInputProps) {
         activeOpacity={0.7}
         style={styles.addButton}
         onPress={handleAddNewTask}
-        //TODO - onPress prop
       >
         <Image source={checkIcon} />
       </TouchableOpacity>
