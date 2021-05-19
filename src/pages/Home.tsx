@@ -14,6 +14,7 @@ interface Task {
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+
   function handleAddTask(newTaskTitle: string) {
     // TODO - add new task if it's not empty
     if(newTaskTitle){
@@ -40,7 +41,7 @@ export function Home() {
       }
     })
 
-    setTasks(TASKS);
+    setTasks(TASKS)
   }
   
   function handleRemoveTask(id: number) {
