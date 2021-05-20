@@ -48,15 +48,28 @@ export function Home() {
   }
   
   function handleRemoveTask(id: number) {
-    let TASKS: Array<Task> = [];
+    const deleteTask = () => {
+      let TASKS: Array<Task> = [];
 
-    tasks.filter(item => {
-      if(item.id !== id){
-        TASKS.push(item)
+      tasks.filter(item => {
+        if(item.id !== id){
+          TASKS.push(item)
+        }
+      });
+
+      setTasks(TASKS);
+    }
+
+    Alert.alert('Delete', 'Are you sure you want to delete this task?', [
+      {
+        text: 'Cancel',
+        onPress: () => {}
+      },
+      {
+        text: 'Delete',
+        onPress: deleteTask
       }
-    });
-
-    setTasks(TASKS);
+    ])
   }
   useEffect(() => {
     
