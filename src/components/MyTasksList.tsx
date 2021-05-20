@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FlatList, TouchableOpacity, View, Text, StyleSheet, FlatListProps, StyleSheetProperties } from 'react-native';
 
 function FlatListHeaderComponent() {
@@ -22,21 +22,19 @@ interface MyTasksListProps {
 
 export function MyTasksList({ tasks, onLongPress, onPress }: MyTasksListProps) {
   
-  
   return (
     <FlatList
       data={tasks}
       keyExtractor={item => String(item.id)}
       renderItem={({ item, index }) => {
-        
         return (
-          <TouchableOpacity
-            style={[styles.taskButton, item.done && styles.taskButtonDone]}
-            testID={`button-${index}` }
-            activeOpacity={0.7}
-            onPress={() => onPress(item.id)}
-            onLongPress={() => onLongPress(item.id)}
-          >
+            <TouchableOpacity
+              style={[styles.taskButton, item.done && styles.taskButtonDone]}
+              testID={`button-${index}` }
+              activeOpacity={0.7}
+              onPress={() => onPress(item.id)}
+              onLongPress={() => onLongPress(item.id)}
+            >
             <View 
               testID={`marker-${index}`}
               style={[styles.taskMarker, item.done && styles.taskMarkerDone]}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 
 import { Header } from '../components/Header';
@@ -13,6 +13,7 @@ interface Task {
 
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [refreshPage, setRefreshPage] = useState(false); 
 
 
   function handleAddTask(newTaskTitle: string) {
@@ -34,14 +35,16 @@ export function Home() {
 
   function handleMarkTaskAsDone(id: number) {
     let TASKS = tasks;
+    let refresh = !refreshPage;
 
     TASKS.map(item => {
       if(item.id === id){
         item.done = !item.done;
       }
-    })
-
-    setTasks(TASKS)
+      return item;
+    });
+    setTasks(TASKS);
+    setRefreshPage(refresh);
   }
   
   function handleRemoveTask(id: number) {
@@ -55,6 +58,9 @@ export function Home() {
 
     setTasks(TASKS);
   }
+  useEffect(() => {
+    
+  },[refreshPage])
 
   return (
     <>
