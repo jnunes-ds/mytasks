@@ -21,31 +21,28 @@ interface MyTasksListProps {
 
 
 export function MyTasksList({ tasks, onLongPress, onPress }: MyTasksListProps) {
-  const [done, setDone] = useState(false);
   
-  function onChangeStyle(done: boolean){
-    setDone(done);
-  }
   
   return (
     <FlatList
       data={tasks}
       keyExtractor={item => String(item.id)}
       renderItem={({ item, index }) => {
+        
         return (
           <TouchableOpacity
-            style={[styles.taskButton, done && styles.taskButtonDone]}
+            style={[styles.taskButton, item.done && styles.taskButtonDone]}
             testID={`button-${index}` }
             activeOpacity={0.7}
-            onPress={() => {onPress(item.id), onChangeStyle(item.done)}}
+            onPress={() => onPress(item.id)}
             onLongPress={() => onLongPress(item.id)}
           >
             <View 
               testID={`marker-${index}`}
-              style={[styles.taskMarker, done && styles.taskMarkerDone]}
+              style={[styles.taskMarker, item.done && styles.taskMarkerDone]}
             />
             <Text 
-              style={[styles.taskText, done && styles.taskTextDone]}
+              style={[styles.taskText, item.done && styles.taskTextDone]}
             >
               {item.title}
             </Text>
