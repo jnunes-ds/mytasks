@@ -1,8 +1,11 @@
-import React, { createContext } from 'react'
-import { useState } from 'react';
+import React, { createContext, useState } from 'react';
 
+interface IColorThemeContext{
+    nightMode: boolean;
+    setNightMode: (arg: boolean) => void
+}
 
-const ColorThemeContext = createContext({});
+const ColorThemeContext = createContext({} as IColorThemeContext);
 
 export const ColorThemeProvider: React.FC = ({ children }) => {
     const [ nightMode, setNightMode ] = useState(false);

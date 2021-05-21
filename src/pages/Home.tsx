@@ -4,6 +4,7 @@ import { Alert } from 'react-native';
 import { Header } from '../components/Header';
 import { MyTasksList } from '../components/MyTasksList';
 import { TodoInput } from '../components/TodoInput';
+import { ColorThemeProvider } from '../Contexts/ColorTheme';
 
 interface Task {
   id: number;
@@ -77,15 +78,17 @@ export function Home() {
 
   return (
     <>
-      <Header />
+    <ColorThemeProvider>
+        <Header />
 
-      <TodoInput addTask={handleAddTask} />
+        <TodoInput addTask={handleAddTask} />
 
-      <MyTasksList 
-        tasks={tasks} 
-        onPress={handleMarkTaskAsDone} 
-        onLongPress={handleRemoveTask} 
-      />
+        <MyTasksList 
+          tasks={tasks} 
+          onPress={handleMarkTaskAsDone} 
+          onLongPress={handleRemoveTask} 
+        />
+      </ColorThemeProvider>
     </>
   )
 }

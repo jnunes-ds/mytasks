@@ -1,6 +1,6 @@
 import { useContext } from 'react'; 
 import ColorThemeContext from '../Contexts/ColorTheme';
 
-export function useColorTheme(){
+export default function useColorTheme(){
     return useContext(ColorThemeContext);
 }

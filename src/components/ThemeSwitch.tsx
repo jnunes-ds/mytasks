@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { Text, View, Switch, StyleSheet } from "react-native";
+import useColorTheme from '../Hooks/useColorTheme';
 
 export function ThemeSwitch(){
   const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const {nightMode, setNightMode} = useColorTheme();
+  
+  
+  const toggleSwitch = () => {
+    setIsEnabled(previousState => !previousState); 
+    setNightMode(!nightMode)
+  }
 
   return (
     <View style={styles.container}>
