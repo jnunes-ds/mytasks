@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import React, { Fragment, useEffect, useState } from 'react';
+import { Alert, SafeAreaView } from 'react-native';
 
 import { Header } from '../components/Header';
 import { MyTasksList } from '../components/MyTasksList';
 import { TodoInput } from '../components/TodoInput';
 import { ColorThemeProvider } from '../Contexts/ColorTheme';
+import { Background } from '../components/Background';
 
 interface Task {
   id: number;
@@ -76,18 +77,22 @@ export function Home() {
     
   },[refreshPage])
 
+  
   return (
     <>
-    <ColorThemeProvider>
-        <Header />
+      <ColorThemeProvider>
+      <Background>
 
-        <TodoInput addTask={handleAddTask} />
+          <Header />
 
-        <MyTasksList 
-          tasks={tasks} 
-          onPress={handleMarkTaskAsDone} 
-          onLongPress={handleRemoveTask} 
-        />
+          <TodoInput addTask={handleAddTask} />
+
+          <MyTasksList 
+            tasks={tasks} 
+            onPress={handleMarkTaskAsDone} 
+            onLongPress={handleRemoveTask} 
+            />
+      </Background>
       </ColorThemeProvider>
     </>
   )

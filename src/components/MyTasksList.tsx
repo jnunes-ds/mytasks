@@ -1,10 +1,13 @@
 import React from 'react';
 import { FlatList, TouchableOpacity, View, Text, StyleSheet, FlatListProps, StyleSheetProperties } from 'react-native';
+import useColorTheme from '../Hooks/useColorTheme';
+import { ColorThemeProvider } from '../Contexts/ColorTheme';
 
 function FlatListHeaderComponent() {
+  const { nightMode } = useColorTheme();
   return (
     <View>
-      <Text style={styles.header}>Minhas tasks</Text>
+      <Text style={[styles.header, nightMode && {color: '#FF79C6'}]}>Minhas tasks</Text>
     </View>
   )
 }
@@ -21,7 +24,8 @@ interface MyTasksListProps {
 
 
 export function MyTasksList({ tasks, onLongPress, onPress }: MyTasksListProps) {
-  
+  const { nightMode } = useColorTheme();
+
   return (
     <FlatList
       data={tasks}
@@ -53,7 +57,7 @@ export function MyTasksList({ tasks, onLongPress, onPress }: MyTasksListProps) {
       }}
       style={{
         marginHorizontal: 24,
-        marginTop: 32
+        marginTop: 32,
       }}
     />
   )
