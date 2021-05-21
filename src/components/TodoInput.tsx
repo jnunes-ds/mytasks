@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Image, Platform, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 
 import checkIcon from '../assets/icons/Check.png';
+import useColorTheme from '../Hooks/useColorTheme';
 
 interface TodoInputProps {
   addTask: (task: string) => void;
@@ -9,6 +10,7 @@ interface TodoInputProps {
 
 export function TodoInput({ addTask }: TodoInputProps) {
   const [task, setTask] = useState('');
+  const {nightMode} = useColorTheme();
 
   function handleAddNewTask(task: string) {
     addTask(task);
@@ -16,10 +18,11 @@ export function TodoInput({ addTask }: TodoInputProps) {
   }
 
   return (
-    <View style={[styles.inputContainer, Platform.OS === 'ios' ? styles.inputIOSShadow : styles.inputAndroidShadow]}>
+    <View style={[styles.inputContainer, Platform.OS === 'ios' ? styles.inputIOSShadow : styles.inputAndroidShadow, nightMode && styles.inputContainerDark]}>
       <TextInput 
-        style={styles.input} 
+        style={[styles.input, nightMode && styles.inputDark]} 
         placeholder="Adicionar novo todo..."
+        placeholderTextColor={nightMode ? "#A09CB1" : "#010101"}
         returnKeyType="send"
         value={task}
         onChangeText={setTask}
@@ -28,7 +31,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
       <TouchableOpacity
         testID="add-new-task-button"
         activeOpacity={0.7}
-        style={styles.addButton}
+        style={[styles.addButton, nightMode && styles.addButtonDark]}
         onPress={() => handleAddNewTask(task)}
       >
         <Image source={checkIcon} />
@@ -47,12 +50,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  inputContainerDark: {
+    backgroundColor: '#34313D'
+  },
   input: {
     flex: 1,
     backgroundColor: '#F5F4F8',
+    color: '#000',
     paddingLeft: 12,
     borderTopLeftRadius: 5,
     borderBottomLeftRadius: 5,
+  },
+  inputDark: {
+    backgroundColor: '#34313D',
+    color: '#E1E1E6'
   },
   inputIOSShadow: {
     shadowColor: "#000",
@@ -75,4 +86,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
   },
+  addButtonDark: {
+    backgroundColor: '#988BC7'
+  }
 });

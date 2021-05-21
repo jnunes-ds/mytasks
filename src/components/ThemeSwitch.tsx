@@ -15,7 +15,7 @@ export function ThemeSwitch(){
   return (
     <View style={styles.container}>
       <Switch
-        trackColor={{ false: "#767577", true: "#483C67" }}
+        trackColor={{ false: "#767577", true: "#34313D" }}
         thumbColor={isEnabled ? "#FF79C6" : "#f4f3f4"}
         ios_backgroundColor="#3e3e3e"
         onValueChange={toggleSwitch}
